@@ -10,10 +10,11 @@ import SwiftData
 
 @Model
 class Note {
-    var id: UUID
-    var title: String
-    var content: String
-    var createdAt: Date
+    // must have a value if you want to synchronize cloudkit (except optional types)
+    var id: UUID = UUID()
+    var title: String = ""
+    var content: String = ""
+    var createdAt: Date = Date.now
     
     init(id: UUID = UUID(), title: String, content: String, createdAt: Date = Date()) {
         self.id = id

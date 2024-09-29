@@ -16,7 +16,7 @@ struct NotesCleanArchitectureApp: App {
         do {
             container = try ModelContainer(for: Note.self)
         } catch {
-            fatalError("Failed to create ModelContainer for Note: \(error)")
+            fatalError("Failed to create ModelContainer for  Note: \(error)")
         }
     }
     
