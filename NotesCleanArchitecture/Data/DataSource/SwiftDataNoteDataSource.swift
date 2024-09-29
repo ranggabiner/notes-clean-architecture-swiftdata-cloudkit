@@ -17,9 +17,11 @@ class SwiftDataNoteDataSource: NoteDataSource {
     
     func fetchAllNotes() async throws -> [Note] {
         let descriptor = FetchDescriptor<Note>(sortBy: [SortDescriptor(\.createdAt, order: .reverse)])
-        return try context.fetch(descriptor)
+        let notes = try context.fetch(descriptor)
+        print("Fetched \(notes.count) notes")
+        return notes
     }
-    
+
     func insert(_ note: Note) async throws {
         context.insert(note)
         try context.save()

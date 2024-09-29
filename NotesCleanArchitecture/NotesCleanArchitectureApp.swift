@@ -33,4 +33,3 @@ struct NotesCleanArchitectureApp: App {
         .modelContainer(container)
     }
 }
-

@@ -40,6 +40,18 @@ struct NoteListView: View {
                         Image(systemName: "plus")
                     }
                 }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        Task {
+                            await viewModel.loadNotes()
+                        }
+                    }) {
+                        Image(systemName: "arrow.clockwise")
+                    }
+                }
+            }
+            .refreshable {
+                await viewModel.loadNotes()
             }
             .sheet(isPresented: $isAddingNote) {
                 NoteEditView(viewModel: viewModel, mode: .add)
